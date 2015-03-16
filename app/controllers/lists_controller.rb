@@ -41,4 +41,9 @@ class ListsController < ApplicationController
     flash[:notice] = "List successfully destroyed :("
     redirect_to lists_path
   end
+
+private
+  def list_params
+    params.require(:list).permit(:name, :description)
+  end
 end
